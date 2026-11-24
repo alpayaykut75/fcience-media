@@ -1,7 +1,8 @@
 """Fcience standart kapanış kartı: kil şişe maskot, stop-motion el sallama + göz kırpma (poz değiştirme, bükme yok)."""
 import math, random, numpy as np, cv2, cairo
 
-D = '/home/claude/end/'
+import os
+D = os.path.dirname(os.path.abspath(__file__)) + '/'
 def _ld(f): return cv2.cvtColor(cv2.imread(D + f), cv2.COLOR_BGR2RGB).astype(np.float32) / 255
 A, B, C = _ld('endA.png'), _ld('endB.png'), _ld('endC.png')
 EH, EW = A.shape[:2]
