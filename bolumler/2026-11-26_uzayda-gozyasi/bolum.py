@@ -68,7 +68,7 @@ def frame(tr):
     expo = 1 + r.uniform(-0.012, 0.012)
     M = None
     if t < 3.0:
-        img = s3(t); z = 1.25 + 0.12 * ease(prog(t, 0, 3))
+        img = s3(t); z = 1.48 - 0.23 * ease(prog(t, 0, 0.6)) + 0.12 * ease(prog(t, 0.6, 3))
         out, M = camera(img, 900, 1150, z, jit)
     elif t < 10.0:
         closed = (5.4 <= t < 5.57) or (8.2 <= t < 9.6)
@@ -100,7 +100,9 @@ def frame(tr):
         endcard.overlay(ctx, t - END, M, lambda lines, t0: label(ctx, lines, 540, 1585, t, END + t0, 14, size=60,
                         col=[(0.16, 0.11, 0.08), (0.2, 0.5, 0.1)]))
     L = label
-    L(ctx, ["Bu bir gözyaşı.", "Ve hiçbir yere gitmiyor."], 540, 1420, t, 0.15, 41, size=58, t1=3.0,
+    L(ctx, ["Uzayda ağlarsan", "gözyaşın nereye gider?"], 540, 1420, t, -0.3, 40, size=62, t1=1.6,
+      col=[(0.16, 0.11, 0.08), (0.75, 0.12, 0.1)])
+    L(ctx, ["Bu bir gözyaşı.", "Ve hiçbir yere gitmiyor."], 540, 1420, t, 1.6, 41, size=58, t1=3.0,
       col=[(0.16, 0.11, 0.08), (0.75, 0.12, 0.1)])
     L(ctx, ["Uzay istasyonu."], 300, 250, t, 3.2, 42, size=58, t1=10.0)
     L(ctx, ["Pencereden Dünya", "görünüyor..."], 540, 1480, t, 4.0, 43, size=54, t1=7.6)
